@@ -7,16 +7,12 @@
   (function () {
     var parts = location.pathname.replace(/\/+$/, '').split('/').filter(Boolean);
     var route = parts[parts.length - 1] || '';
-    var valid = ['about','impact','expertise','process','skills','projects','experience','education','contact'];
-    if (valid.indexOf(route) !== -1) {
-      sessionStorage.setItem('portfolioRoute', route);
-    }
+    var valid = ['about','impact','skills','snapshots','projects','achievements','certifications','experience','github','blog','resume','contact'];
+    if (valid.indexOf(route) !== -1) sessionStorage.setItem('portfolioRoute', route);
     location.replace('/');
   })();
 </script>
 <meta http-equiv="refresh" content="0;url=/">
 </head>
-<body>
-  <p><a href="/">Back to portfolio</a></p>
-</body>
+<body><p><a href="/">Back to portfolio</a></p></body>
 </html>
