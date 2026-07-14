@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Surya Pratap Singh — Flutter & Android Developer</title>
-<meta name="description" content="Surya Pratap Singh — Flutter Developer, Android Developer (Kotlin) & iOS. 4+ years building cross-platform and native apps used by 10,000+ users.">
+<title>Surya Pratap Singh — Senior Flutter & Android Developer</title>
+<meta name="description" content="Senior Flutter & Android (Kotlin) developer with 4+ years shipping production apps — Clean Architecture, payments, maps, 99.5%+ crash-free sessions, Play Store & App Store releases.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -295,6 +295,7 @@
     border-bottom:1px solid var(--line);
     background:rgba(255,255,255,0.55);
     backdrop-filter:blur(10px);
+    padding-bottom:28px;
   }
   .stats-row{
     display:grid; grid-template-columns:repeat(4,1fr);
@@ -436,6 +437,101 @@
   .commit ul{margin:0; padding-left:18px; color:var(--muted); font-size:15px;}
   .commit ul li{margin-bottom:7px;}
 
+  /* ---------- IMPACT / EXPERTISE / PROCESS ---------- */
+  .avail-bar{
+    display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;
+    margin:36px auto 0; max-width:var(--max); padding:18px 24px;
+    background:#fff; border:1px solid var(--line); border-radius:14px;
+  }
+  .avail-bar .avail-left{display:flex; align-items:center; gap:12px; font-weight:600; font-size:15px;}
+  .avail-bar .avail-dot{
+    width:10px; height:10px; border-radius:50%; background:#22A06B;
+    box-shadow:0 0 0 4px rgba(34,160,107,0.18);
+  }
+  .avail-bar .avail-meta{color:var(--muted); font-size:14px; font-weight:400;}
+  .avail-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .avail-tags span{
+    font-size:12.5px; font-weight:500; color:var(--accent);
+    background:var(--accent-soft); padding:6px 12px; border-radius:8px;
+  }
+
+  .impact-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+  }
+  .impact-item{
+    background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px 22px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .impact-item:hover{border-color:rgba(1,117,194,0.3); transform:translateY(-2px);}
+  .impact-item .metric{
+    font-family:var(--font-display); font-size:28px; font-weight:700;
+    letter-spacing:-0.03em; color:var(--accent); margin-bottom:8px;
+  }
+  .impact-item p{margin:0; color:var(--muted); font-size:14.5px; line-height:1.5;}
+
+  .expertise-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+  }
+  .expertise-item{
+    padding:26px 24px; border-radius:16px; border:1px solid var(--line);
+    background:rgba(255,255,255,0.7);
+  }
+  .expertise-item h3{
+    font-size:17px; font-weight:700; margin-bottom:10px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .expertise-item h3 .num{
+    font-family:var(--font-mono); font-size:12px; color:var(--accent);
+    background:var(--accent-soft); padding:4px 8px; border-radius:6px;
+  }
+  .expertise-item p{margin:0; color:var(--muted); font-size:14.5px; line-height:1.55;}
+
+  .process-row{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    counter-reset:step;
+  }
+  .process-step{
+    position:relative;
+    background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px 20px;
+  }
+  .process-step::before{
+    counter-increment:step;
+    content:counter(step, decimal-leading-zero);
+    font-family:var(--font-mono); font-size:12px; color:var(--cyan);
+    display:block; margin-bottom:12px; font-weight:600;
+  }
+  .process-step h3{font-size:16px; font-weight:700; margin-bottom:8px;}
+  .process-step p{margin:0; color:var(--muted); font-size:14px; line-height:1.5;}
+
+  .project-impact{
+    display:flex; flex-wrap:wrap; gap:8px; margin-top:2px;
+  }
+  .project-impact span{
+    font-family:var(--font-mono); font-size:11.5px; font-weight:500;
+    color:#0F6B4C; background:rgba(34,160,107,0.1);
+    padding:5px 10px; border-radius:6px;
+  }
+
+  .edu-card{
+    margin-top:8px; padding:24px 26px; background:#fff; border:1px solid var(--line);
+    border-radius:16px;
+  }
+  .edu-card h3{font-size:18px; font-weight:700; margin-bottom:4px;}
+  .edu-card .commit-meta{margin-bottom:10px;}
+  .edu-card p{margin:0; color:var(--muted); font-size:15px;}
+
+  .cta-banner{
+    margin-top:56px; padding:36px 40px; border-radius:20px;
+    background:linear-gradient(125deg, #0B1A2B 0%, #0E3A5C 55%, #0175C2 100%);
+    color:#fff; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px;
+  }
+  .cta-banner h3{font-size:clamp(22px,3vw,28px); font-weight:700; margin-bottom:8px;}
+  .cta-banner p{margin:0; opacity:0.8; max-width:480px; font-size:15.5px;}
+  .cta-banner .btn-primary{
+    background:#fff; color:var(--ink); box-shadow:none;
+  }
+  .cta-banner .btn-primary:hover{background:var(--cyan); color:#fff;}
+
   /* ---------- CONTACT ---------- */
   .contact-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:56px;}
   .contact-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
@@ -490,12 +586,15 @@
     .phone-screen{border-radius:24px;}
     .phone-notch{width:72px; height:18px; top:14px;}
     .phone-status{padding:28px 16px 8px;}
-    .phone-greeting{font-size:18px;}
+    .phone-greeting{font-size:16px;}
     .phone-glow{width:220px; height:220px;}
     .stats-row{grid-template-columns:repeat(2,1fr); gap:0;}
     .stat:nth-child(2){border-right:none;}
     .stat:nth-child(1), .stat:nth-child(2){border-bottom:1px solid var(--line); padding-bottom:18px; margin-bottom:8px;}
-    .project-grid{grid-template-columns:1fr;}
+    .project-grid, .impact-grid, .expertise-grid{grid-template-columns:1fr;}
+    .process-row{grid-template-columns:1fr 1fr;}
+    .avail-bar{margin:24px 16px 0; flex-direction:column; align-items:flex-start;}
+    .cta-banner{padding:28px 24px;}
     .nav-links{
       position:fixed; top:68px; left:0; right:0; background:rgba(244,248,252,0.98);
       flex-direction:column; padding:20px 28px; border-bottom:1px solid var(--line);
@@ -505,6 +604,9 @@
     .burger{display:block;}
     .nav-cta{display:none;}
     section{padding:72px 0;}
+  }
+  @media (max-width:560px){
+    .process-row{grid-template-columns:1fr;}
   }
   @media (prefers-reduced-motion:reduce){
     *, *::before, *::after{
@@ -525,6 +627,8 @@
     <a href="#" class="logo"><span class="dot"></span>Surya Pratap Singh</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#expertise">Expertise</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -598,6 +702,18 @@
     <div class="stat fade-in"><strong>99.5%+</strong><span>Crash-free sessions</span></div>
     <div class="stat fade-in"><strong>10,000+</strong><span>End users served</span></div>
   </div>
+  <div class="avail-bar fade-in">
+    <div class="avail-left">
+      <span class="avail-dot" aria-hidden="true"></span>
+      <span>Open to opportunities <span class="avail-meta">· Full-time · Contract · Freelance · Noida / Remote</span></span>
+    </div>
+    <div class="avail-tags">
+      <span>Flutter</span>
+      <span>Kotlin</span>
+      <span>Jetpack Compose</span>
+      <span>Clean Architecture</span>
+    </div>
+  </div>
 </div>
 
 <!-- ================= ABOUT ================= -->
@@ -623,15 +739,112 @@
   </div>
 </section>
 
+<!-- ================= IMPACT ================= -->
+<section id="impact" class="skills-section">
+  <div class="wrap">
+    <div class="eyebrow fade-in">impact</div>
+    <h2 class="section-title fade-in">Proven impact.</h2>
+    <p class="section-sub fade-in">Measurable outcomes from production apps — not just feature lists.</p>
+    <div class="impact-grid">
+      <div class="impact-item fade-in">
+        <div class="metric">30% faster</div>
+        <p>API load time cut (1.8s → 1.3s) with SQLite/Room + Hive offline caching and expiry-based invalidation.</p>
+      </div>
+      <div class="impact-item fade-in">
+        <div class="metric">20% quicker</div>
+        <p>Feature delivery improved via shared Flutter widget/utility libraries across multiple production apps.</p>
+      </div>
+      <div class="impact-item fade-in">
+        <div class="metric">0 incidents</div>
+        <p>Razorpay, Stripe &amp; PayPal checkouts for 10,000+ users — zero payment-related production issues over 6 months.</p>
+      </div>
+      <div class="impact-item fade-in">
+        <div class="metric">3.8 → 4.4★</div>
+        <p>Play Store ratings lifted by fixing 40+ production crashes through structured Crashlytics analysis.</p>
+      </div>
+      <div class="impact-item fade-in">
+        <div class="metric">0% → 45%</div>
+        <p>Unit-test coverage raised on core business logic with Bloc/Cubit and ViewModel + StateFlow.</p>
+      </div>
+      <div class="impact-item fade-in">
+        <div class="metric">&lt; 1s lists</div>
+        <p>Firestore screens under 1 second for 5,000+ records using indexes, limits, and cursor pagination.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERTISE ================= -->
+<section id="expertise">
+  <div class="wrap">
+    <div class="eyebrow fade-in">expertise</div>
+    <h2 class="section-title fade-in">What I own end-to-end.</h2>
+    <p class="section-sub fade-in">Senior mobile ownership — architecture through App Store release, not just UI tickets.</p>
+    <div class="expertise-grid">
+      <div class="expertise-item fade-in">
+        <h3><span class="num">01</span> Architecture</h3>
+        <p>Clean Architecture, MVVM, and feature modules so Flutter and Kotlin codebases stay testable and handover-ready.</p>
+      </div>
+      <div class="expertise-item fade-in">
+        <h3><span class="num">02</span> State &amp; UI</h3>
+        <p>Bloc/Cubit, Provider, Riverpod on Flutter; ViewModel + StateFlow and Jetpack Compose on native Android.</p>
+      </div>
+      <div class="expertise-item fade-in">
+        <h3><span class="num">03</span> Backend integration</h3>
+        <p>REST APIs, Firebase Auth/Firestore/FCM/Crashlytics, offline-first caching, and real-time sync when the product needs it.</p>
+      </div>
+      <div class="expertise-item fade-in">
+        <h3><span class="num">04</span> Payments &amp; maps</h3>
+        <p>Production checkout with Razorpay, Stripe, PayPal; Google Maps, custom markers, geofencing, and live location flows.</p>
+      </div>
+      <div class="expertise-item fade-in">
+        <h3><span class="num">05</span> Store releases</h3>
+        <p>End-to-end Play Store &amp; App Store shipping — signing, provisioning, phased rollouts across multiple app titles.</p>
+      </div>
+      <div class="expertise-item fade-in">
+        <h3><span class="num">06</span> Mentorship</h3>
+        <p>Pair-programming and code reviews that cut junior onboarding time; Material Design 3 quality checklists before release.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process" class="skills-section">
+  <div class="wrap">
+    <div class="eyebrow fade-in">process</div>
+    <h2 class="section-title fade-in">How I ship apps.</h2>
+    <p class="section-sub fade-in">A repeatable flow from greenfield idea to crash-free production.</p>
+    <div class="process-row">
+      <div class="process-step fade-in">
+        <h3>Scope &amp; architecture</h3>
+        <p>Align with product/design, pick Clean Architecture + state strategy, define modules and API contracts.</p>
+      </div>
+      <div class="process-step fade-in">
+        <h3>Build &amp; integrate</h3>
+        <p>Flutter or Kotlin UI, DI, offline storage, payments/maps, and platform channels when native is required.</p>
+      </div>
+      <div class="process-step fade-in">
+        <h3>Harden &amp; test</h3>
+        <p>Crashlytics, unit tests on core logic, MD3 UI checklist, and performance passes on real devices.</p>
+      </div>
+      <div class="process-step fade-in">
+        <h3>Release &amp; monitor</h3>
+        <p>Store signing, phased rollout, alert on top crashes, and iterate within two weeks of each release.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= SKILLS ================= -->
-<section id="skills" class="skills-section">
+<section id="skills">
   <div class="wrap">
     <div class="eyebrow fade-in">skills</div>
-    <h2 class="section-title fade-in">pubspec.yaml</h2>
-    <p class="section-sub fade-in">The tech stack I reach for most, grouped the way a Flutter dev actually organizes them.</p>
+    <h2 class="section-title fade-in">Tech stack</h2>
+    <p class="section-sub fade-in">Tools I use day-to-day for Flutter, native Android, and production mobile ops.</p>
 
     <div class="pubspec-card fade-in">
-      <div class="pubspec-header"><span class="pkg" aria-hidden="true"></span>dependencies — surya_pratap_singh/skills</div>
+      <div class="pubspec-header"><span class="pkg" aria-hidden="true"></span>stack — flutter · kotlin · production</div>
       <div class="pubspec-body">
         <div class="dep-group">
           <h3>languages</h3>
@@ -692,6 +905,9 @@
             <span class="dep">hilt / dagger</span>
             <span class="dep">get_it</span>
             <span class="dep">platform_channels</span>
+            <span class="dep">unit_testing</span>
+            <span class="dep">ci_cd</span>
+            <span class="dep">play_store / app_store</span>
           </div>
         </div>
       </div>
@@ -713,6 +929,7 @@
         </div>
         <h3>Employmint — Corporate HR &amp; ERP System</h3>
         <p>Replaced a manual HR workflow with a mobile platform for attendance, leave approvals, and payroll — cutting admin processing time by 60%. Includes an automated payroll module with audit-ready CSV/PDF exports and role-based access control via Firebase Auth custom claims.</p>
+        <div class="project-impact"><span>−60% admin time</span><span>RBAC + payroll</span></div>
         <div class="project-tags">
           <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">REST APIs</span><span class="tag">Bloc/Cubit</span>
         </div>
@@ -727,6 +944,7 @@
         </div>
         <h3>Garden Groceries — Online Grocery Delivery</h3>
         <p>Grocery shopping app with category browsing, cart management, and real-time order placement. Firebase real-time sync keeps cart and stock status accurate without manual refresh.</p>
+        <div class="project-impact"><span>Real-time cart sync</span><span>End-to-end orders</span></div>
         <div class="project-tags">
           <span class="tag">Flutter</span><span class="tag">Provider</span><span class="tag">Firebase</span><span class="tag">REST APIs</span>
         </div>
@@ -741,6 +959,7 @@
         </div>
         <h3>Giftrr — Digital Gift Voucher Platform</h3>
         <p>Reached 1,000+ downloads in 3 months with a 4.5-star Play Store rating. FCM push notifications hit a 42% open rate, and deep-link routing from shared gift URLs boosted share-to-install conversion by ~18%.</p>
+        <div class="project-impact"><span>4.5★ rating</span><span>42% FCM open rate</span><span>+18% share→install</span></div>
         <div class="project-tags">
           <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Deep Linking</span>
         </div>
@@ -800,25 +1019,39 @@
           <li>Mentored 2 junior developers via pair-programming and code reviews, accelerating onboarding by ~3 weeks.</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="commit fade-in">
-        <div class="commit-title">Bachelor of Technology (B.Tech) — Computer Science Engineering</div>
-        <div class="commit-meta">Amani Group of Institutions, AKTU, Lucknow · Graduated 2018</div>
-        <ul>
-          <li>Relevant coursework: Database Management Systems, Machine Learning, Computer Networks, Cyber Security.</li>
-        </ul>
-      </div>
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow fade-in">education</div>
+    <h2 class="section-title fade-in">Education</h2>
+    <div class="edu-card fade-in">
+      <h3>Bachelor of Technology (B.Tech) — Computer Science Engineering</h3>
+      <div class="commit-meta">Amani Group of Institutions, AKTU, Lucknow · Graduated 2018</div>
+      <p>Relevant coursework: Database Management Systems, Machine Learning, Computer Networks, Cyber Security.</p>
     </div>
   </div>
 </section>
 
 <!-- ================= CONTACT ================= -->
 <section id="contact">
-  <div class="wrap contact-grid">
+  <div class="wrap">
+    <div class="cta-banner fade-in">
+      <div>
+        <h3>Hiring a Flutter / Android engineer?</h3>
+        <p>I ship cross-platform and native apps with Clean Architecture, production payments, store releases, and 99.5%+ crash-free habits. Let's talk about your next release.</p>
+      </div>
+      <a href="mailto:suryapratapsinghdeveloper@gmail.com" class="btn btn-primary">Email me →</a>
+    </div>
+  </div>
+  <div class="wrap contact-grid" style="margin-top:56px;">
     <div class="fade-in">
       <div class="eyebrow">contact</div>
       <h2 class="section-title">Let's build something.</h2>
-      <p class="section-sub">Open to full-time roles, freelance projects, and interesting problems. Reach out through whichever channel you prefer.</p>
+      <p class="section-sub">Open to full-time roles, freelance projects, and interesting problems. Prefer email or LinkedIn for recruiters.</p>
       <ul class="contact-list">
         <li>
           <a href="mailto:suryapratapsinghdeveloper@gmail.com">
