@@ -1,0 +1,71 @@
+{
+  "garden": {
+    "name": "Garden Groceries",
+    "package": "com.gardengroceries.app",
+    "play": "https://play.google.com/store/apps/details?id=com.gardengroceries.app",
+    "ios": "https://apps.apple.com/app/garden-groceries/id6759443244",
+    "screenshots": [
+      "assets/screenshots/garden/shot_01.jpg",
+      "assets/screenshots/garden/shot_02.jpg",
+      "assets/screenshots/garden/shot_03.jpg",
+      "assets/screenshots/garden/shot_04.jpg",
+      "assets/screenshots/garden/shot_05.jpg"
+    ],
+    "icon": "assets/screenshots/garden/icon.jpg"
+  },
+  "giftrr": {
+    "name": "Giftrr",
+    "package": "com.wm.giftr",
+    "play": "https://play.google.com/store/apps/details?id=com.wm.giftr",
+    "ios": "https://apps.apple.com/app/giftr/id6746745500",
+    "screenshots": [
+      "assets/screenshots/giftrr/shot_01.jpg",
+      "assets/screenshots/giftrr/shot_02.jpg",
+      "assets/screenshots/giftrr/shot_03.jpg",
+      "assets/screenshots/giftrr/shot_04.jpg",
+      "assets/screenshots/giftrr/shot_05.jpg"
+    ],
+    "icon": "assets/screenshots/giftrr/icon.jpg"
+  },
+  "garage_user": {
+    "name": "Garage X User",
+    "package": "com.wm.garagex_user",
+    "play": "https://play.google.com/store/apps/details?id=com.wm.garagex_user",
+    "ios": "https://apps.apple.com/app/garage-users-app/id6756010115",
+    "screenshots": [
+      "assets/screenshots/garage_user/shot_01.jpg",
+      "assets/screenshots/garage_user/shot_02.jpg",
+      "assets/screenshots/garage_user/shot_03.jpg",
+      "assets/screenshots/garage_user/shot_04.jpg",
+      "assets/screenshots/garage_user/shot_05.jpg"
+    ],
+    "icon": "assets/screenshots/garage_user/icon.jpg"
+  },
+  "garage_provider": {
+    "name": "Garage X Provider",
+    "package": "com.wm.garagex_provider",
+    "play": "https://play.google.com/store/apps/details?id=com.wm.garagex_provider",
+    "ios": "https://apps.apple.com/app/garage-provider-app/id6756486324",
+    "screenshots": [
+      "assets/screenshots/garage_provider/shot_01.jpg",
+      "assets/screenshots/garage_provider/shot_02.jpg",
+      "assets/screenshots/garage_provider/shot_03.jpg",
+      "assets/screenshots/garage_provider/shot_04.jpg"
+    ],
+    "icon": "assets/screenshots/garage_provider/icon.jpg"
+  },
+  "employmint": {
+    "name": "Employmint",
+    "package": "com.wm.employmint",
+    "play": "https://play.google.com/store/apps/details?id=com.wm.employmint",
+    "ios": "https://apps.apple.com/app/employ-mint/id6749062181",
+    "screenshots": [
+      "assets/screenshots/employmint/shot_01.jpg",
+      "assets/screenshots/employmint/shot_02.jpg",
+      "assets/screenshots/employmint/shot_03.jpg",
+      "assets/screenshots/employmint/shot_04.jpg",
+      "assets/screenshots/employmint/shot_05.jpg"
+    ],
+    "icon": "assets/screenshots/employmint/icon.jpg"
+  }
+}
