@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surya Pratap Singh — Flutter & Android Developer</title>
+<meta name="description" content="Surya Pratap Singh — Flutter Developer, Android Developer (Kotlin) & iOS. 4+ years building cross-platform and native apps used by 10,000+ users.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF9;
+    --bg-alt:#F2F3F0;
+    --ink:#14181F;
+    --muted:#5B6472;
+    --line:#E4E7E2;
+    --accent:#2E4FE0;
+    --accent-soft:#ECEFFE;
+    --teal:#0F9B8E;
+    --teal-soft:#E7F6F4;
+    --code-bg:#12151C;
+    --code-text:#D7DCE5;
+    --code-keyword:#7AA2F7;
+    --code-string:#9ECE6A;
+    --code-comment:#6B7280;
+    --code-type:#E0AF68;
+    --radius:14px;
+    --max:1120px;
+    --font-display:'Space Grotesk', 'Inter', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-0.02em;}
+  section{padding:96px 0;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:13px;
+    color:var(--accent);
+    text-transform:lowercase;
+    letter-spacing:0.02em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:'//'; color:var(--muted); opacity:0.6;}
+  .section-title{font-size:clamp(28px,3.4vw,38px); font-weight:600; margin-bottom:16px;}
+  .section-sub{color:var(--muted); font-size:17px; max-width:620px; margin-bottom:48px;}
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,250,249,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .logo{
+    font-family:var(--font-mono); font-weight:600; font-size:15px;
+    display:flex; align-items:center; gap:8px; text-decoration:none;
+  }
+  .logo .dot{width:8px;height:8px;border-radius:50%;background:var(--teal); display:inline-block;}
+  .nav-links{display:flex; gap:32px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    text-decoration:none; font-size:14.5px; font-weight:500; color:var(--muted);
+    position:relative; padding:4px 0;
+  }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:0; height:2px; width:0;
+    background:var(--accent); transition:width .25s ease;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    font-family:var(--font-mono); font-size:13.5px; font-weight:500;
+    background:var(--ink); color:#fff; padding:9px 18px; border-radius:8px;
+    text-decoration:none; white-space:nowrap;
+  }
+  .nav-cta:hover{background:var(--accent);}
+  .burger{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+  .burger span{display:block; width:22px; height:2px; background:var(--ink); margin:4px 0; border-radius:2px;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:88px 0 96px;}
+  .hero-grid{
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
+  }
+  .hero-kicker{
+    font-family:var(--font-mono); font-size:14px; color:var(--teal);
+    display:flex; align-items:center; gap:10px; margin-bottom:22px;
+  }
+  .hero-kicker .pulse{
+    width:8px;height:8px;border-radius:50%;background:var(--teal); position:relative;
+  }
+  .hero-kicker .pulse::after{
+    content:''; position:absolute; inset:-4px; border-radius:50%; border:2px solid var(--teal);
+    animation:pulse 2s ease-out infinite;
+  }
+  @keyframes pulse{0%{transform:scale(0.6); opacity:1;} 100%{transform:scale(1.8); opacity:0;}}
+
+  .hero h1{
+    font-size:clamp(38px,5vw,58px); font-weight:700; line-height:1.05; margin-bottom:20px;
+  }
+  .hero h1 .accent-word{color:var(--accent);}
+  .hero p.lede{
+    font-size:18px; color:var(--muted); max-width:520px; margin-bottom:32px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px;}
+  .btn{
+    font-family:var(--font-body); font-weight:600; font-size:15px;
+    padding:13px 24px; border-radius:9px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid transparent; cursor:pointer; transition:transform .15s ease, background .2s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--ink); color:#fff;}
+  .btn-primary:hover{background:var(--accent);}
+  .btn-outline{background:transparent; color:var(--ink); border-color:var(--line);}
+  .btn-outline:hover{border-color:var(--ink);}
+
+  .hero-meta{display:flex; gap:28px; flex-wrap:wrap;}
+  .hero-meta div{font-family:var(--font-mono); font-size:13px; color:var(--muted);}
+  .hero-meta strong{display:block; font-family:var(--font-display); font-size:20px; color:var(--ink); font-weight:600;}
+
+  /* code card */
+  .code-card{
+    background:var(--code-bg); border-radius:16px; padding:0; overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(20,24,31,0.35);
+    font-family:var(--font-mono);
+  }
+  .code-titlebar{
+    display:flex; align-items:center; gap:8px; padding:14px 18px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .code-titlebar span{width:11px;height:11px;border-radius:50%;}
+  .code-titlebar .c1{background:#ED6A5E;}
+  .code-titlebar .c2{background:#F4BF4F;}
+  .code-titlebar .c3{background:#61C454;}
+  .code-titlebar .fname{margin-left:8px; font-size:12.5px; color:var(--code-comment);}
+  .code-body{padding:22px 20px 26px; font-size:13.5px; line-height:1.85; color:var(--code-text); min-height:290px;}
+  .code-body .kw{color:var(--code-keyword);}
+  .code-body .ty{color:var(--code-type);}
+  .code-body .st{color:var(--code-string);}
+  .code-body .cm{color:var(--code-comment);}
+  #typed-code{white-space:pre-wrap;}
+  .caret{display:inline-block; width:7px; background:var(--teal); margin-left:2px; animation:blink 1s step-start infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* ---------- ABOUT / flutter doctor ---------- */
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start;}
+  .about-text p{color:var(--muted); font-size:16.5px; margin-bottom:18px;}
+  .doctor-card{
+    background:var(--code-bg); border-radius:16px; font-family:var(--font-mono);
+    font-size:13.5px; color:var(--code-text); overflow:hidden;
+    box-shadow:0 24px 48px -20px rgba(20,24,31,0.3);
+  }
+  .doctor-card .code-titlebar .fname{margin-left:8px;}
+  .doctor-body{padding:22px 22px 26px; line-height:2;}
+  .doctor-body .prompt{color:var(--teal);}
+  .doctor-body .check{color:var(--code-string); font-weight:600;}
+  .doctor-body .line{opacity:0; transform:translateY(4px); animation:reveal .5s ease forwards;}
+
+  @keyframes reveal{to{opacity:1; transform:translateY(0);}}
+
+  /* ---------- SKILLS (pubspec style) ---------- */
+  .pubspec-card{
+    background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden;
+  }
+  .pubspec-header{
+    padding:16px 24px; border-bottom:1px solid var(--line); background:var(--bg-alt);
+    font-family:var(--font-mono); font-size:13.5px; color:var(--muted);
+    display:flex; align-items:center; gap:10px;
+  }
+  .pubspec-header::before{content:'📦'; font-size:14px;}
+  .pubspec-body{padding:8px 0;}
+  .dep-group{padding:20px 28px; border-bottom:1px solid var(--line);}
+  .dep-group:last-child{border-bottom:none;}
+  .dep-group h3{
+    font-family:var(--font-mono); font-size:14px; font-weight:600; color:var(--ink); margin-bottom:14px;
+  }
+  .dep-group h3::before{content:'# '; color:var(--code-comment);}
+  .dep-list{display:flex; flex-wrap:wrap; gap:10px;}
+  .dep{
+    font-family:var(--font-mono); font-size:13px; background:var(--accent-soft); color:var(--accent);
+    padding:6px 12px; border-radius:7px; display:flex; align-items:center; gap:6px;
+  }
+  .dep .v{color:var(--muted);}
+
+  /* ---------- EXPERIENCE (git log) ---------- */
+  .gitlog{position:relative; padding-left:32px;}
+  .gitlog::before{
+    content:''; position:absolute; left:9px; top:6px; bottom:6px; width:2px;
+    background:var(--line);
+  }
+  .commit{position:relative; padding-bottom:44px;}
+  .commit:last-child{padding-bottom:0;}
+  .commit::before{
+    content:''; position:absolute; left:-32px; top:4px; width:20px; height:20px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent);
+  }
+  .commit::after{
+    content:''; position:absolute; left:-25px; top:11px; width:8px; height:8px; border-radius:50%;
+    background:var(--accent);
+  }
+  .commit-hash{font-family:var(--font-mono); font-size:12.5px; color:var(--teal); margin-bottom:6px;}
+  .commit-title{font-size:20px; font-weight:600; font-family:var(--font-display); margin-bottom:2px;}
+  .commit-meta{font-family:var(--font-mono); font-size:13px; color:var(--muted); margin-bottom:14px;}
+  .commit ul{margin:0; padding-left:20px; color:var(--muted); font-size:15px;}
+  .commit ul li{margin-bottom:6px;}
+
+  /* ---------- PROJECTS ---------- */
+  .project-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:24px;}
+  .project-card{
+    background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px;
+    display:flex; flex-direction:column; gap:14px; transition:border-color .2s ease, transform .2s ease;
+  }
+  .project-card:hover{border-color:var(--accent); transform:translateY(-3px);}
+  .project-icon{
+    width:48px; height:48px; border-radius:12px; background:var(--accent-soft);
+    display:flex; align-items:center; justify-content:center; font-size:22px;
+  }
+  .project-card h3{font-size:19px; font-weight:600;}
+  .project-card p{color:var(--muted); font-size:15px; margin:0;}
+  .project-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--font-mono); font-size:12px; color:var(--teal); background:var(--teal-soft);
+    padding:4px 10px; border-radius:6px;
+  }
+  .project-links{display:flex; gap:16px; margin-top:auto; padding-top:6px;}
+  .project-links a{
+    font-size:14px; font-weight:600; text-decoration:none; color:var(--accent);
+    display:flex; align-items:center; gap:5px;
+  }
+  .project-links a:hover{text-decoration:underline;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px;}
+  .contact-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:18px;}
+  .contact-list a{
+    display:flex; align-items:center; gap:14px; text-decoration:none; color:var(--ink);
+    font-size:16px; font-weight:500; padding:14px 18px; border:1px solid var(--line); border-radius:11px;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .contact-list a:hover{border-color:var(--accent); background:var(--accent-soft);}
+  .contact-list .ico{
+    width:36px; height:36px; border-radius:9px; background:var(--bg-alt);
+    display:flex; align-items:center; justify-content:center; font-size:16px; flex:none;
+  }
+  .contact-list small{display:block; color:var(--muted); font-weight:400; font-size:12.5px; margin-top:2px;}
+
+  form.contact-form{display:flex; flex-direction:column; gap:16px;}
+  form.contact-form input, form.contact-form textarea{
+    font-family:var(--font-body); font-size:15px; padding:14px 16px;
+    border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--ink); resize:vertical;
+  }
+  form.contact-form label{font-size:13px; font-weight:600; color:var(--muted); margin-bottom:6px; display:block; font-family:var(--font-mono);}
+  form.contact-form .field{display:flex; flex-direction:column;}
+  form.contact-form button{align-self:flex-start;}
+
+  footer{border-top:1px solid var(--line); padding:36px 0;}
+  .footer-row{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;}
+  .footer-row p{color:var(--muted); font-size:13.5px; margin:0; font-family:var(--font-mono);}
+  .footer-socials{display:flex; gap:18px;}
+  .footer-socials a{color:var(--muted); text-decoration:none; font-size:14px; font-weight:500;}
+  .footer-socials a:hover{color:var(--accent);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .hero-grid, .about-grid, .contact-grid{grid-template-columns:1fr;}
+    .project-grid{grid-template-columns:1fr;}
+    .nav-links{
+      position:fixed; top:72px; left:0; right:0; background:var(--bg); flex-direction:column;
+      padding:20px 28px; border-bottom:1px solid var(--line); gap:18px; display:none;
+    }
+    .nav-links.open{display:flex;}
+    .burger{display:block;}
+    section{padding:64px 0;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#" class="logo"><span class="dot"></span>surya.dev</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="resume.pdf" class="nav-cta" download>↓ resume.pdf</a>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-kicker"><span class="pulse"></span>Software Developer @ WebMobril Technologies · Noida, India</div>
+      <h1>Building apps that <span class="accent-word">ship fast</span> and run smooth.</h1>
+      <p class="lede">I'm Surya Pratap Singh, a Flutter &amp; Android (Kotlin) Developer with 4+ years of experience building cross-platform and native apps used by 10,000+ end users — with 99.5%+ crash-free sessions and a habit of shipping on schedule.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects →</a>
+        <a href="resume.pdf" class="btn btn-outline" download>Download Resume</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>4+ yrs</strong>Flutter, Kotlin &amp; iOS</div>
+        <div><strong>10+</strong>Apps shipped</div>
+        <div><strong>99.5%+</strong>Crash-free sessions</div>
+        <div><strong>10,000+</strong>End users served</div>
+      </div>
+    </div>
+
+    <div class="code-card">
+      <div class="code-titlebar">
+        <span class="c1"></span><span class="c2"></span><span class="c3"></span>
+        <span class="fname">developer.dart</span>
+      </div>
+      <div class="code-body"><span id="typed-code"></span><span class="caret" id="caret"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow">about</div>
+      <h2 class="section-title">A little about how I build.</h2>
+      <div class="about-text">
+        <p>I build and ship cross-platform (Flutter) and native (Kotlin/Jetpack Compose, iOS) apps used by 10,000+ end users. I've achieved 99.5%+ crash-free sessions, cut API load times by 30% through smart caching, and shortened release cycles by 20% by building reusable component libraries.</p>
+        <p>I'm hands-on with Bloc/Cubit, Provider, and Riverpod on Flutter, plus MVVM with ViewModel + StateFlow on native Android — all wired to Clean Architecture so the next developer (often future-me) can actually maintain it. I've also shipped end-to-end payment integrations (Razorpay, Stripe, PayPal) with zero payment-related incidents.</p>
+        <p>Outside of shipping features, I work closely with design, backend, and product teams to turn technical constraints into realistic timelines — and I've mentored junior developers through pair-programming and code reviews.</p>
+      </div>
+    </div>
+
+    <div class="doctor-card">
+      <div class="code-titlebar">
+        <span class="c1"></span><span class="c2"></span><span class="c3"></span>
+        <span class="fname">terminal</span>
+      </div>
+      <div class="doctor-body" id="doctorBody">
+        <div class="line" style="animation-delay:.05s"><span class="prompt">$</span> flutter doctor -v</div>
+        <div class="line" style="animation-delay:.15s">&nbsp;</div>
+        <div class="line" style="animation-delay:.25s"><span class="check">[✓]</span> 4+ years hands-on Flutter &amp; Android (Kotlin)</div>
+        <div class="line" style="animation-delay:.35s"><span class="check">[✓]</span> Clean Architecture, MVVM &amp; MVC</div>
+        <div class="line" style="animation-delay:.45s"><span class="check">[✓]</span> 10+ apps shipped to production, 10,000+ users</div>
+        <div class="line" style="animation-delay:.55s"><span class="check">[✓]</span> State mgmt — Bloc/Cubit, Provider, Riverpod, StateFlow</div>
+        <div class="line" style="animation-delay:.65s"><span class="check">[✓]</span> Firebase, REST APIs &amp; Razorpay/Stripe/PayPal</div>
+        <div class="line" style="animation-delay:.75s"><span class="check">[✓]</span> Play Store &amp; App Store releases, CI/CD</div>
+        <div class="line" style="animation-delay:.85s">&nbsp;</div>
+        <div class="line" style="animation-delay:.95s">• No issues found — ready to build your next app!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" style="background:var(--bg-alt);">
+  <div class="wrap">
+    <div class="eyebrow">skills</div>
+    <h2 class="section-title">pubspec.yaml</h2>
+    <p class="section-sub">The tech stack I reach for most, grouped the way a Flutter dev actually organizes them.</p>
+
+    <div class="pubspec-card">
+      <div class="pubspec-header">dependencies — surya_pratap_singh/skills</div>
+      <div class="pubspec-body">
+        <div class="dep-group">
+          <h3>languages</h3>
+          <div class="dep-list">
+            <span class="dep">dart</span>
+            <span class="dep">kotlin</span>
+            <span class="dep">sql</span>
+            <span class="dep">core_java</span>
+            <span class="dep">c</span>
+          </div>
+        </div>
+        <div class="dep-group">
+          <h3>state_management</h3>
+          <div class="dep-list">
+            <span class="dep">flutter_bloc / cubit</span>
+            <span class="dep">provider</span>
+            <span class="dep">flutter_riverpod</span>
+            <span class="dep">viewmodel + stateflow <span class="v">(kotlin)</span></span>
+            <span class="dep">livedata <span class="v">(kotlin)</span></span>
+          </div>
+        </div>
+        <div class="dep-group">
+          <h3>backend &amp; data</h3>
+          <div class="dep-list">
+            <span class="dep">firebase_auth</span>
+            <span class="dep">cloud_firestore</span>
+            <span class="dep">firebase_messaging</span>
+            <span class="dep">firebase_crashlytics</span>
+            <span class="dep">rest_apis</span>
+          </div>
+        </div>
+        <div class="dep-group">
+          <h3>local_storage</h3>
+          <div class="dep-list">
+            <span class="dep">room_db</span>
+            <span class="dep">sqlite</span>
+            <span class="dep">hive</span>
+            <span class="dep">shared_preferences</span>
+            <span class="dep">datastore</span>
+          </div>
+        </div>
+        <div class="dep-group">
+          <h3>payments &amp; maps</h3>
+          <div class="dep-list">
+            <span class="dep">razorpay</span>
+            <span class="dep">stripe</span>
+            <span class="dep">paypal</span>
+            <span class="dep">google_maps_sdk</span>
+            <span class="dep">geofencing</span>
+          </div>
+        </div>
+        <div class="dep-group">
+          <h3>architecture &amp; tools</h3>
+          <div class="dep-list">
+            <span class="dep">clean_architecture</span>
+            <span class="dep">mvvm</span>
+            <span class="dep">jetpack_compose</span>
+            <span class="dep">hilt / dagger</span>
+            <span class="dep">get_it</span>
+            <span class="dep">platform_channels</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">projects</div>
+    <h2 class="section-title">Things I've shipped.</h2>
+    <p class="section-sub">Production apps I've architected end-to-end — from data models to Play Store release.</p>
+
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-icon">🏢</div>
+        <h3>Employmint — Corporate HR &amp; ERP System</h3>
+        <p>Replaced a manual HR workflow with a mobile platform for attendance, leave approvals, and payroll — cutting admin processing time by 60%. Includes an automated payroll module with audit-ready CSV/PDF exports and role-based access control via Firebase Auth custom claims.</p>
+        <div class="project-tags">
+          <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">REST APIs</span><span class="tag">Bloc/Cubit</span>
+        </div>
+        <div class="project-links">
+          <a href="#">Play Store ↗</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🛒</div>
+        <h3>Garden Groceries — Online Grocery Delivery</h3>
+        <p>Grocery shopping app with category browsing, cart management, and real-time order placement. Firebase real-time sync keeps cart and stock status accurate without manual refresh.</p>
+        <div class="project-tags">
+          <span class="tag">Flutter</span><span class="tag">Provider</span><span class="tag">Firebase</span><span class="tag">REST APIs</span>
+        </div>
+        <div class="project-links">
+          <a href="#">Play Store ↗</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🎁</div>
+        <h3>Giftrr — Digital Gift Voucher Platform</h3>
+        <p>Reached 1,000+ downloads in 3 months with a 4.5-star Play Store rating. FCM push notifications hit a 42% open rate, and deep-link routing from shared gift URLs boosted share-to-install conversion by ~18%.</p>
+        <div class="project-tags">
+          <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Deep Linking</span>
+        </div>
+        <div class="project-links">
+          <a href="#">Play Store ↗</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">🐙</div>
+        <h3>More on GitHub</h3>
+        <p>These are the highlights — there's more in the repos: experiments, native Android (Kotlin) modules, and work in progress.</p>
+        <div class="project-tags">
+          <span class="tag">Flutter</span><span class="tag">Kotlin</span><span class="tag">Android</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/suryapratapsingh" target="_blank" rel="noopener">Visit GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience" style="background:var(--bg-alt);">
+  <div class="wrap">
+    <div class="eyebrow">experience</div>
+    <h2 class="section-title">git log --author="Surya"</h2>
+    <p class="section-sub">My career, one commit at a time.</p>
+
+    <div class="gitlog">
+      <div class="commit">
+        <div class="commit-hash">commit 9f3a1c2 (HEAD -&gt; main, current)</div>
+        <div class="commit-title">Software Developer — Flutter &amp; Android (Kotlin) @ WebMobril Technologies Pvt. Ltd.</div>
+        <div class="commit-meta">Aug 2024 — Present · Noida, Uttar Pradesh</div>
+        <ul>
+          <li>Architected 3 production Flutter apps and 1 native Android (Kotlin + Jetpack Compose) app, cutting feature delivery time by 20% via a shared widget/utility library.</li>
+          <li>Achieved 99.5%+ crash-free sessions by configuring Firebase Crashlytics alerting and resolving the top 15 fatal crash patterns within 2 weeks of each release.</li>
+          <li>Reduced API load time by 30% (1.8s → 1.3s) by layering SQLite/Room DB and Hive offline caching with expiry-based invalidation.</li>
+          <li>Integrated Google Maps SDK with custom markers, geofencing, and live driver-location polling for real-time routing in an on-demand vehicle services app.</li>
+          <li>Shipped Razorpay, Stripe, and PayPal checkout flows for 10,000+ registered users with zero payment-related production incidents across 6 months.</li>
+          <li>Raised unit-test coverage from 0% to 45% on core business logic using Bloc/Cubit (Flutter) and ViewModel + StateFlow (Kotlin).</li>
+          <li>Managed end-to-end Play Store and App Store releases — signing, provisioning profiles, phased rollouts — across 3 app titles.</li>
+        </ul>
+      </div>
+
+      <div class="commit">
+        <div class="commit-hash">commit 5b7e441</div>
+        <div class="commit-title">Flutter &amp; Android Developer @ Ghoul Web Solutions</div>
+        <div class="commit-meta">Jul 2022 — Aug 2024 · Noida, Uttar Pradesh</div>
+        <ul>
+          <li>Delivered 5 Flutter apps and 2 native Android (Kotlin) apps from greenfield to production, averaging 11 weeks per app.</li>
+          <li>Reduced UI-related bug reports by 25% by establishing a pre-release component review checklist audited against Material Design 3 specs.</li>
+          <li>Diagnosed and resolved 40+ production crashes through structured Crashlytics log analysis, raising average Play Store ratings from 3.8 to 4.4 stars.</li>
+          <li>Migrated 2 legacy setState apps to Provider architecture and 1 AsyncTask-based Android app to Kotlin Coroutines + MVVM, eliminating recurring state-sync and threading bugs.</li>
+          <li>Reduced Firestore list-screen load times to under 1 second for 5,000+ record datasets using composite indexes, query limits, and cursor-based pagination.</li>
+          <li>Mentored 2 junior developers via pair-programming and code reviews, accelerating onboarding by ~3 weeks.</li>
+        </ul>
+      </div>
+
+      <div class="commit">
+        <div class="commit-hash">commit 1a2c908</div>
+        <div class="commit-title">Bachelor of Technology (B.Tech) — Computer Science Engineering</div>
+        <div class="commit-meta">Amani Group of Institutions, AKTU, Lucknow · Graduated 2018</div>
+        <ul>
+          <li>Relevant coursework: Database Management Systems, Machine Learning, Computer Networks, Cyber Security.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <div class="eyebrow">contact</div>
+      <h2 class="section-title">Let's build something.</h2>
+      <p class="section-sub">Open to full-time roles, freelance projects, and interesting problems. Reach out through whichever channel you prefer.</p>
+      <ul class="contact-list">
+        <li><a href="mailto:suryapratapsinghdeveloper@gmail.com"><span class="ico">✉️</span><span>suryapratapsinghdeveloper@gmail.com<small>Email</small></span></a></li>
+        <li><a href="tel:+919627914349"><span class="ico">📞</span><span>+91 96279 14349<small>Phone</small></span></a></li>
+        <li><a href="https://linkedin.com/in/suryapratapsingh" target="_blank" rel="noopener"><span class="ico">💼</span><span>linkedin.com/in/suryapratapsingh<small>LinkedIn — update with your real profile URL</small></span></a></li>
+        <li><a href="https://github.com/suryapratapsingh" target="_blank" rel="noopener"><span class="ico">🐙</span><span>github.com/suryapratapsingh<small>GitHub — update with your real profile URL</small></span></a></li>
+        <li><span style="display:flex; align-items:center; gap:14px; padding:14px 18px; border:1px solid var(--line); border-radius:11px;"><span class="ico">📍</span><span>Noida, Uttar Pradesh, India<small>Location</small></span></span></li>
+      </ul>
+    </div>
+
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="What are you building?" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>© <span id="year"></span> Surya Pratap Singh · Built with Flutter-flavored HTML.</p>
+    <div class="footer-socials">
+      <a href="mailto:suryapratapsinghdeveloper@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/suryapratapsingh" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/suryapratapsingh" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // Footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Typing effect for hero code card
+  const codeLines = [
+    { text: "class ", cls: "kw" },
+    { text: "Developer ", cls: "ty" },
+    { text: "extends ", cls: "kw" },
+    { text: "Person {\n", cls: "ty" },
+    { text: "  final String name = ", cls: "" },
+    { text: "'Surya Pratap Singh'", cls: "st" },
+    { text: ";\n", cls: "" },
+    { text: "  final String role = ", cls: "" },
+    { text: "'Flutter & Android (Kotlin) Developer'", cls: "st" },
+    { text: ";\n", cls: "" },
+    { text: "  final int experience = ", cls: "" },
+    { text: "4", cls: "st" },
+    { text: "; ", cls: "" },
+    { text: "// years\n\n", cls: "cm" },
+    { text: "  ", cls: "" },
+    { text: "@override\n", cls: "cm" },
+    { text: "  Widget ", cls: "ty" },
+    { text: "build", cls: "" },
+    { text: "() => ", cls: "" },
+    { text: "Passion", cls: "ty" },
+    { text: "(\n", cls: "" },
+    { text: "    focus: [", cls: "" },
+    { text: "'Flutter'", cls: "st" },
+    { text: ", ", cls: "" },
+    { text: "'Kotlin'", cls: "st" },
+    { text: ", ", cls: "" },
+    { text: "'Clean Architecture'", cls: "st" },
+    { text: "],\n", cls: "" },
+    { text: "    availability: ", cls: "" },
+    { text: "true", cls: "kw" },
+    { text: ",\n", cls: "" },
+    { text: "  );\n}", cls: "" },
+  ];
+
+  const target = document.getElementById('typed-code');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function renderPlain(){
+    target.innerHTML = codeLines.map(l => l.cls ? `<span class="${l.cls}">${l.text}</span>` : l.text).join('');
+    document.getElementById('caret').style.display = 'none';
+  }
+
+  if (reduceMotion) {
+    renderPlain();
+  } else {
+    let li = 0, ci = 0;
+    let html = '';
+    function typeNext(){
+      if (li >= codeLines.length) return;
+      const line = codeLines[li];
+      if (ci === 0) html += line.cls ? `<span class="${line.cls}">` : '';
+      if (ci < line.text.length) {
+        html += line.text[ci];
+        target.innerHTML = html;
+        ci++;
+        setTimeout(typeNext, 14);
+      } else {
+        html += line.cls ? '</span>' : '';
+        li++; ci = 0;
+        setTimeout(typeNext, 8);
+      }
+    }
+    setTimeout(typeNext, 400);
+  }
+</script>
+
+</body>
+</html>
