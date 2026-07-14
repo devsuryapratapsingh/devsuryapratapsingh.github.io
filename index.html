@@ -49,16 +49,13 @@
   h1,h2,h3{font-family:var(--font-display); margin:0; letter-spacing:-0.03em;}
   section{padding:100px 0;}
   .eyebrow{
-    font-family:var(--font-mono);
     font-size:12.5px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
     color:var(--accent);
-    letter-spacing:0.04em;
-    display:flex;
-    align-items:center;
-    gap:8px;
     margin-bottom:14px;
   }
-  .eyebrow::before{content:'//'; color:var(--muted); opacity:0.55;}
   .section-title{font-size:clamp(30px,3.6vw,42px); font-weight:700; margin-bottom:14px;}
   .section-sub{color:var(--muted); font-size:17px; max-width:560px; margin:0 0 44px;}
 
@@ -634,17 +631,17 @@
 
 <header id="siteHeader">
   <nav class="wrap">
-    <a href="#" class="logo"><span class="dot"></span>Surya Pratap Singh</a>
+    <a href="/" class="logo"><span class="dot"></span>Surya Pratap Singh</a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#impact">Impact</a></li>
-      <li><a href="#expertise">Expertise</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="/about" data-route="about">About</a></li>
+      <li><a href="/impact" data-route="impact">Impact</a></li>
+      <li><a href="/expertise" data-route="expertise">Expertise</a></li>
+      <li><a href="/skills" data-route="skills">Skills</a></li>
+      <li><a href="/projects" data-route="projects">Projects</a></li>
+      <li><a href="/experience" data-route="experience">Experience</a></li>
+      <li><a href="/contact" data-route="contact">Contact</a></li>
     </ul>
-    <a href="resume.pdf" class="nav-cta" download>resume.pdf</a>
+    <a href="Surya_Pratap_Singh_Resume.pdf" class="nav-cta" download="Surya_Pratap_Singh_Resume.pdf">Resume</a>
     <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -660,8 +657,8 @@
       <h1 class="reveal-up d1">Building apps that <span class="accent-word">ship fast</span> and run smooth.</h1>
       <p class="lede reveal-up d2">I'm a Flutter &amp; Android (Kotlin) Developer with 4+ years of experience building cross-platform and native apps used by 10,000+ end users — with 99.5%+ crash-free sessions and a habit of shipping on schedule.</p>
       <div class="hero-actions reveal-up d3">
-        <a href="#projects" class="btn btn-primary">View Projects →</a>
-        <a href="resume.pdf" class="btn btn-outline" download>Download Resume</a>
+        <a href="/projects" class="btn btn-primary" data-route="projects">View Projects →</a>
+        <a href="Surya_Pratap_Singh_Resume.pdf" class="btn btn-outline" download="Surya_Pratap_Singh_Resume.pdf">Download Resume</a>
       </div>
     </div>
 
@@ -734,7 +731,7 @@
       <h2 class="section-title">A little about how I build.</h2>
       <div class="about-text">
         <p>I build and ship cross-platform (Flutter) and native (Kotlin/Jetpack Compose, iOS) apps used by 10,000+ end users. I've achieved 99.5%+ crash-free sessions, cut API load times by 30% through smart caching, and shortened release cycles by 20% by building reusable component libraries.</p>
-        <p>I'm hands-on with Bloc/Cubit, Provider, and Riverpod on Flutter, plus MVVM with ViewModel + StateFlow on native Android — all wired to Clean Architecture so the next developer (often future-me) can actually maintain it. I've also shipped end-to-end payment integrations (Razorpay, Stripe, PayPal) with zero payment-related incidents.</p>
+        <p>I'm hands-on with Bloc/Cubit, Provider, and Riverpod on Flutter, plus MVVM with ViewModel + StateFlow on native Android — all wired to Clean Architecture so the codebase stays maintainable as the team grows. I've also shipped end-to-end payment integrations (Razorpay, Stripe, PayPal) with zero payment-related incidents.</p>
         <p>Outside of shipping features, I work closely with design, backend, and product teams to turn technical constraints into realistic timelines — and I've mentored junior developers through pair-programming and code reviews.</p>
       </div>
     </div>
@@ -778,7 +775,7 @@
       </div>
       <div class="impact-item fade-in">
         <div class="metric">&lt; 1s lists</div>
-        <p>Firestore screens under 1 second for 5,000+ records using indexes, limits, and cursor pagination.</p>
+        <p>Firestore screens under 1 second for 5,000+ records using indexes, limits, and keyset pagination.</p>
       </div>
     </div>
   </div>
@@ -1061,7 +1058,7 @@
           <li>Reduced UI-related bug reports by 25% by establishing a pre-release component review checklist audited against Material Design 3 specs.</li>
           <li>Diagnosed and resolved 40+ production crashes through structured Crashlytics log analysis, raising average Play Store ratings from 3.8 to 4.4 stars.</li>
           <li>Migrated 2 legacy setState apps to Provider architecture and 1 AsyncTask-based Android app to Kotlin Coroutines + MVVM, eliminating recurring state-sync and threading bugs.</li>
-          <li>Reduced Firestore list-screen load times to under 1 second for 5,000+ record datasets using composite indexes, query limits, and cursor-based pagination.</li>
+          <li>Reduced Firestore list-screen load times to under 1 second for 5,000+ record datasets using composite indexes, query limits, and keyset pagination.</li>
           <li>Mentored 2 junior developers via pair-programming and code reviews, accelerating onboarding by ~3 weeks.</li>
         </ul>
       </div>
@@ -1097,7 +1094,7 @@
     <div class="fade-in">
       <div class="eyebrow">contact</div>
       <h2 class="section-title">Let's build something.</h2>
-      <p class="section-sub">Open to full-time roles, freelance projects, and interesting problems. Prefer email or LinkedIn for recruiters.</p>
+      <p class="section-sub">Open to full-time roles, freelance projects, and interesting problems. Prefer email or LinkedIn.</p>
       <ul class="contact-list">
         <li>
           <a href="mailto:suryapratapsinghdeveloper@gmail.com">
@@ -1156,7 +1153,7 @@
 
 <footer>
   <div class="wrap footer-row">
-    <p>© <span id="year"></span> Surya Pratap Singh · Built with Flutter-flavored HTML.</p>
+    <p>© <span id="year"></span> Surya Pratap Singh</p>
     <div class="footer-socials">
       <a href="mailto:suryapratapsinghdeveloper@gmail.com">Email</a>
       <a href="https://linkedin.com/in/surya-pratap-singh" target="_blank" rel="noopener">LinkedIn</a>
@@ -1169,15 +1166,69 @@
   const burger = document.getElementById('burgerBtn');
   const navLinks = document.getElementById('navLinks');
   const header = document.getElementById('siteHeader');
+  const VALID_ROUTES = ['about','impact','expertise','process','skills','projects','experience','education','contact'];
+
+  function goToRoute(route, push) {
+    if (route && !VALID_ROUTES.includes(route)) return;
+    const path = route ? '/' + route : '/';
+    if (push) history.pushState({ route: route || '' }, '', path);
+    else history.replaceState({ route: route || '' }, '', path);
+    if (route) {
+      const el = document.getElementById(route);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    navLinks.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }
+
+  function routeFromPath() {
+    const raw = (location.pathname || '/').replace(/\/+$/, '') || '/';
+    const part = raw === '/' ? '' : raw.split('/').filter(Boolean).pop();
+    return VALID_ROUTES.includes(part) ? part : '';
+  }
 
   burger.addEventListener('click', () => {
     const isOpen = navLinks.classList.toggle('open');
     burger.setAttribute('aria-expanded', isOpen);
   });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    burger.setAttribute('aria-expanded', false);
-  }));
+
+  document.querySelectorAll('[data-route]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToRoute(link.getAttribute('data-route'), true);
+    });
+  });
+
+  document.querySelectorAll('.logo').forEach(logo => {
+    logo.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToRoute('', true);
+    });
+  });
+
+  window.addEventListener('popstate', () => {
+    goToRoute(routeFromPath(), false);
+  });
+
+  // Deep-link handoff from /contact folders
+  const pending = sessionStorage.getItem('portfolioRoute');
+  if (pending) {
+    sessionStorage.removeItem('portfolioRoute');
+    goToRoute(pending, false);
+  } else if (location.hash && location.hash.length > 1) {
+    const legacy = location.hash.slice(1).split('?')[0];
+    if (VALID_ROUTES.includes(legacy)) goToRoute(legacy, false);
+  } else {
+    const initial = routeFromPath();
+    if (initial) {
+      history.replaceState({ route: initial }, '', '/' + initial);
+      setTimeout(() => {
+        document.getElementById(initial)?.scrollIntoView({ behavior: 'auto', block: 'start' });
+      }, 50);
+    }
+  }
 
   window.addEventListener('scroll', () => {
     header.classList.toggle('scrolled', window.scrollY > 12);
@@ -1185,7 +1236,7 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Contact form → FormSubmit (no Formspree ID needed)
+  // Contact form
   const contactForm = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
   const contactSubmit = document.getElementById('contactSubmit');
@@ -1211,7 +1262,6 @@
           throw new Error(data.message || 'Send failed');
         }
       } catch (err) {
-        // Fallback: open mail client so the message is never lost
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
@@ -1264,7 +1314,7 @@
     { text: "  Widget ", cls: "ty" },
     { text: "build", cls: "" },
     { text: "() => ", cls: "" },
-    { text: "Passion", cls: "ty" },
+    { text: "App", cls: "ty" },
     { text: "(\n", cls: "" },
     { text: "    focus: [", cls: "" },
     { text: "'Flutter'", cls: "st" },
@@ -1273,7 +1323,7 @@
     { text: ", ", cls: "" },
     { text: "'Clean Architecture'", cls: "st" },
     { text: "],\n", cls: "" },
-    { text: "    availability: ", cls: "" },
+    { text: "    shipping: ", cls: "" },
     { text: "true", cls: "kw" },
     { text: ",\n", cls: "" },
     { text: "  );\n}", cls: "" },

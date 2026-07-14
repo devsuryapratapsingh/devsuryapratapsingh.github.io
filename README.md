@@ -1,2 +1,1 @@
-# devsuryapratapsingh.github.io
-My personal portfolio 
+Portfolio site for Surya Pratap Singh — Flutter & Android developer.
