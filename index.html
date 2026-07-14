@@ -383,6 +383,9 @@
 
   /* ---------- PROJECTS ---------- */
   .project-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
+  @media (min-width:1100px){
+    .project-grid{grid-template-columns:repeat(3,1fr);}
+  }
   .project-card{
     background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px;
     display:flex; flex-direction:column; gap:14px;
@@ -408,10 +411,10 @@
     font-family:var(--font-mono); font-size:11.5px; color:var(--accent);
     background:var(--accent-soft); padding:5px 10px; border-radius:6px;
   }
-  .project-links{display:flex; gap:16px; margin-top:auto; padding-top:6px;}
+  .project-links{display:flex; gap:12px; flex-wrap:wrap; margin-top:auto; padding-top:6px;}
   .project-links a{
-    font-size:14px; font-weight:600; text-decoration:none; color:var(--accent);
-    display:flex; align-items:center; gap:5px;
+    font-size:13.5px; font-weight:600; text-decoration:none; color:var(--accent);
+    display:inline-flex; align-items:center; gap:4px;
   }
   .project-links a:hover{color:#0290E8;}
 
@@ -562,6 +565,13 @@
   form.contact-form label{font-size:12px; font-weight:600; color:var(--muted); margin-bottom:6px; display:block; font-family:var(--font-mono);}
   form.contact-form .field{display:flex; flex-direction:column;}
   form.contact-form button{align-self:flex-start; border:none;}
+  .form-status{
+    display:none; margin-top:4px; padding:12px 14px; border-radius:10px; font-size:14px;
+  }
+  .form-status.show{display:block;}
+  .form-status.ok{background:rgba(34,160,107,0.12); color:#0F6B4C;}
+  .form-status.err{background:rgba(220,50,50,0.1); color:#A33;}
+  .btn[disabled]{opacity:0.65; cursor:wait; transform:none !important;}
 
   footer{border-top:1px solid var(--line); padding:34px 0; background:rgba(255,255,255,0.4);}
   .footer-row{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;}
@@ -928,13 +938,14 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6M7 16h8"/></svg>
         </div>
         <h3>Employmint — Corporate HR &amp; ERP System</h3>
-        <p>Replaced a manual HR workflow with a mobile platform for attendance, leave approvals, and payroll — cutting admin processing time by 60%. Includes an automated payroll module with audit-ready CSV/PDF exports and role-based access control via Firebase Auth custom claims.</p>
-        <div class="project-impact"><span>−60% admin time</span><span>RBAC + payroll</span></div>
+        <p>Replaced a manual HR workflow with a mobile platform for attendance, leave approvals, payroll, and compliance reports — cutting admin processing time by 60%. Payroll module handles variable pay with audit-ready CSV/PDF exports; RBAC via Firebase Auth custom claims protects sensitive data.</p>
+        <div class="project-impact"><span>−60% admin time</span><span>RBAC + payroll</span><span>CSV/PDF exports</span></div>
         <div class="project-tags">
           <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">REST APIs</span><span class="tag">Bloc/Cubit</span>
         </div>
         <div class="project-links">
-          <a href="#">Play Store ↗</a>
+          <a href="https://play.google.com/store/apps/details?id=com.wm.employmint" target="_blank" rel="noopener">Play Store ↗</a>
+          <a href="https://apps.apple.com/app/employ-mint/id6749062181" target="_blank" rel="noopener">App Store ↗</a>
         </div>
       </article>
 
@@ -943,13 +954,14 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16l-1.5 11H5.5L4 7z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/><circle cx="9" cy="20" r="1.2" fill="currentColor" stroke="none"/><circle cx="17" cy="20" r="1.2" fill="currentColor" stroke="none"/></svg>
         </div>
         <h3>Garden Groceries — Online Grocery Delivery</h3>
-        <p>Grocery shopping app with category browsing, cart management, and real-time order placement. Firebase real-time sync keeps cart and stock status accurate without manual refresh.</p>
+        <p>Grocery shopping app with category browsing, cart management, and real-time order placement. Firebase real-time sync keeps cart stock and delivery status accurate without manual refresh.</p>
         <div class="project-impact"><span>Real-time cart sync</span><span>End-to-end orders</span></div>
         <div class="project-tags">
           <span class="tag">Flutter</span><span class="tag">Provider</span><span class="tag">Firebase</span><span class="tag">REST APIs</span>
         </div>
         <div class="project-links">
-          <a href="#">Play Store ↗</a>
+          <a href="https://play.google.com/store/apps/details?id=com.gardengroceries.app" target="_blank" rel="noopener">Play Store ↗</a>
+          <a href="https://apps.apple.com/app/garden-groceries/id6759443244" target="_blank" rel="noopener">App Store ↗</a>
         </div>
       </article>
 
@@ -964,7 +976,41 @@
           <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Deep Linking</span>
         </div>
         <div class="project-links">
-          <a href="#">Play Store ↗</a>
+          <a href="https://play.google.com/store/apps/details?id=com.wm.giftr" target="_blank" rel="noopener">Play Store ↗</a>
+          <a href="https://apps.apple.com/app/giftr/id6746745500" target="_blank" rel="noopener">App Store ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card fade-in">
+        <div class="project-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14M7 17V9l5-5 5 5v8"/><path d="M10 17v-3h4v3"/></svg>
+        </div>
+        <h3>Garage X — Vehicle Service Booking</h3>
+        <p>Two native Android (Kotlin + Jetpack Compose) apps — Customer booking and Garage Provider — on a shared Firebase backend. Real-time job matching with Google Maps + Places cut provider response time by ~35%. Live job pipeline (Pending → Completed), Stripe invoices, and FCM alerts for new requests.</p>
+        <div class="project-impact"><span>−35% response time</span><span>User + Provider apps</span><span>Stripe + Maps</span></div>
+        <div class="project-tags">
+          <span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">MVVM</span><span class="tag">Firebase</span><span class="tag">Google Maps</span>
+        </div>
+        <div class="project-links">
+          <a href="https://play.google.com/store/apps/details?id=com.wm.garagex_user" target="_blank" rel="noopener">Play · User ↗</a>
+          <a href="https://apps.apple.com/app/garage-users-app/id6756010115" target="_blank" rel="noopener">iOS · User ↗</a>
+          <a href="https://play.google.com/store/apps/details?id=com.wm.garagex_provider" target="_blank" rel="noopener">Play · Provider ↗</a>
+          <a href="https://apps.apple.com/app/garage-provider-app/id6756486324" target="_blank" rel="noopener">iOS · Provider ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card fade-in">
+        <div class="project-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-6h6v6"/><path d="M9 10h.01M15 10h.01"/></svg>
+        </div>
+        <h3>Luxury Villa — Premium Property Booking</h3>
+        <p>Flutter app for browsing and booking luxury villas — property discovery, filters, map-based location, booking flow, and secure checkout designed for a premium real-estate experience on Android &amp; iOS.</p>
+        <div class="project-impact"><span>Flutter</span><span>Maps + booking</span><span>Payments</span></div>
+        <div class="project-tags">
+          <span class="tag">Flutter</span><span class="tag">Firebase</span><span class="tag">Google Maps</span><span class="tag">Payments</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/suryapratap" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
       </article>
 
@@ -973,12 +1019,12 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.1 6.8 9.4.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.2-3.4-1.2-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1 .8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5C19.1 20.1 22 16.4 22 12c0-5.5-4.5-10-10-10z"/></svg>
         </div>
         <h3>More on GitHub</h3>
-        <p>These are the highlights — there's more in the repos: experiments, native Android (Kotlin) modules, and work in progress.</p>
+        <p>Experiments, native Android modules, and work in progress beyond the highlights above.</p>
         <div class="project-tags">
           <span class="tag">Flutter</span><span class="tag">Kotlin</span><span class="tag">Android</span>
         </div>
         <div class="project-links">
-          <a href="https://github.com/suryapratapsingh" target="_blank" rel="noopener">Visit GitHub ↗</a>
+          <a href="https://github.com/suryapratap" target="_blank" rel="noopener">Visit GitHub ↗</a>
         </div>
       </article>
     </div>
@@ -1030,7 +1076,7 @@
     <h2 class="section-title fade-in">Education</h2>
     <div class="edu-card fade-in">
       <h3>Bachelor of Technology (B.Tech) — Computer Science Engineering</h3>
-      <div class="commit-meta">Amani Group of Institutions, AKTU, Lucknow · Graduated 2018</div>
+      <div class="commit-meta">Amani Group of Institutions, AKTU, Lucknow · GPA 7.6/10 · Graduated 2018</div>
       <p>Relevant coursework: Database Management Systems, Machine Learning, Computer Networks, Cyber Security.</p>
     </div>
   </div>
@@ -1066,15 +1112,15 @@
           </a>
         </li>
         <li>
-          <a href="https://linkedin.com/in/suryapratapsingh" target="_blank" rel="noopener">
+          <a href="https://linkedin.com/in/surya-pratap-singh" target="_blank" rel="noopener">
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-5a2 2 0 0 1 4 0v5"/></svg></span>
-            <span>linkedin.com/in/suryapratapsingh<small>LinkedIn</small></span>
+            <span>linkedin.com/in/surya-pratap-singh<small>LinkedIn</small></span>
           </a>
         </li>
         <li>
-          <a href="https://github.com/suryapratapsingh" target="_blank" rel="noopener">
+          <a href="https://github.com/suryapratap" target="_blank" rel="noopener">
             <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.1 6.8 9.4.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.2-3.4-1.2-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1 .8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.8v2.7c0 .3.2.6.7.5C19.1 20.1 22 16.4 22 12c0-5.5-4.5-10-10-10z"/></svg></span>
-            <span>github.com/suryapratapsingh<small>GitHub</small></span>
+            <span>github.com/suryapratap<small>GitHub</small></span>
           </a>
         </li>
         <li>
@@ -1086,7 +1132,10 @@
       </ul>
     </div>
 
-    <form class="contact-form fade-in" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form class="contact-form fade-in" id="contactForm" action="https://formsubmit.co/ajax/suryapratapsinghdeveloper@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New message from portfolio — Surya Pratap Singh">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0;">
       <div class="field">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -1099,7 +1148,8 @@
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" placeholder="What are you building?" required></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Send Message →</button>
+      <button type="submit" class="btn btn-primary" id="contactSubmit">Send Message →</button>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
     </form>
   </div>
 </section>
@@ -1109,8 +1159,8 @@
     <p>© <span id="year"></span> Surya Pratap Singh · Built with Flutter-flavored HTML.</p>
     <div class="footer-socials">
       <a href="mailto:suryapratapsinghdeveloper@gmail.com">Email</a>
-      <a href="https://linkedin.com/in/suryapratapsingh" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/suryapratapsingh" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/surya-pratap-singh" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/suryapratap" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </footer>
@@ -1134,6 +1184,48 @@
   }, { passive: true });
 
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Contact form → FormSubmit (no Formspree ID needed)
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  const contactSubmit = document.getElementById('contactSubmit');
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formStatus.className = 'form-status';
+      formStatus.textContent = '';
+      contactSubmit.disabled = true;
+      contactSubmit.textContent = 'Sending…';
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' }
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok) {
+          formStatus.className = 'form-status show ok';
+          formStatus.textContent = 'Message sent. I will get back to you soon.';
+          contactForm.reset();
+        } else {
+          throw new Error(data.message || 'Send failed');
+        }
+      } catch (err) {
+        // Fallback: open mail client so the message is never lost
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const subject = encodeURIComponent('Portfolio contact from ' + name);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+        window.location.href = `mailto:suryapratapsinghdeveloper@gmail.com?subject=${subject}&body=${body}`;
+        formStatus.className = 'form-status show ok';
+        formStatus.textContent = 'Opening your email app to send the message…';
+      } finally {
+        contactSubmit.disabled = false;
+        contactSubmit.textContent = 'Send Message →';
+      }
+    });
+  }
 
   // Scroll reveals
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
